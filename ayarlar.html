@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        input{
+            margin-left: 100px;
+            max-width: 80px
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td><label>Dersten geçme notu</label></td>
+                <td><input type="number" id="gecmeNot"></td>
+            </tr>
+            <tr>
+                <td><label>"Takdir Belgesi" için gerekli not</label></td>
+                <td><input type="number" id="takdirNot"></td>
+            </tr>
+            <tr>
+                <td><label>"Teşekkür Belgesi" için gerekli not</label></td>
+                <td><input type="number" id="tesekkurNot"></td>
+            </tr>
+            <tr>
+                <td style="text-align:center"><button type="submit">Kaydet</button></td>
+                <td style="text-align:center"><button type="button" id="varsayilanButon">Varsayılanlara Dön</button></td>
+            </tr>
+        </table>
+    </form>
+    <table>
+        <tr>
+            <td><button type="button" id="dersSifirla">Kayıtlı haftalık ders saat bilgilerini sıfırla</button></td>
+        </tr>
+    </table>
+    <script src="ayarlar.js"></script>
+</body>
+</html>
