@@ -1,0 +1,15 @@
+{
+    "appName": {
+      "message": "E-Okul Ortalama Hesaplayıcı",
+      "description": "The name of the extension."
+    },
+    "appDescription": {
+      "message": "Notlarınızı düzenleyerek dönem sonu ortalamanızı ve alacağınız belgeyi görebilirsiniz.",
+      "description": "The description of the extension."
+    },
+    "btnTooltip": {
+      "message": "Ext Starter",
+      "description": "Tooltip for the button."
+    }
+  }
+  

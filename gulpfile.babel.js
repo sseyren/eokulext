@@ -25,14 +25,6 @@ var manifest = {
         "scripts/background.js"
       ]
     }
-  },
-
-  firefox: {
-    "applications": {
-      "gecko": {
-        "id": "my-app-id@mozilla.org"
-      }
-    }
   }
 }
 
@@ -85,11 +77,6 @@ gulp.task("manifest", () => {
       jsonSpace: " ".repeat(4),
       endObj: manifest.dev
     })))
-    .pipe(gulpif(target === "firefox", $.mergeJson({
-      fileName: "manifest.json",
-      jsonSpace: " ".repeat(4),
-      endObj: manifest.firefox
-    })))
     .pipe(gulp.dest(`./build/${target}`))
 });
 
@@ -128,10 +115,9 @@ function mergeAll(dest) {
 function buildJS(target) {
   const files = [
     'background.js',
-    'contentscript.js',
-    'options.js',
-    'popup.js',
-    'livereload.js'
+    'ayarlar.js',
+    'livereload.js',
+    'hesapla.js'
   ]
 
   let tasks = files.map( file => {

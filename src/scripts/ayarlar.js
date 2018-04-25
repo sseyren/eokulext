@@ -1,4 +1,6 @@
-varsayilanlar = {
+import storage from "./utils/storage";
+
+let varsayilanlar = {
     gecmeNot: 50,
     takdirNot: 85,
     tesekkurNot: 70
@@ -20,7 +22,7 @@ function ayarlariKaydet() {
     } else if (isNaN(gecmeNot) || gecmeNot < 0 || gecmeNot > 100) {
         alert('"Geçme Notu" kısmında geçersiz bir girdi var. Notlar 0 ile 100 arasındaki sayılardan oluşabilir.')
     } else {
-        browser.storage.local.set({
+        storage.set({
             notlar: {
                 gecmeNot: gecmeNot,
                 takdirNot: takdirNot,
@@ -31,7 +33,7 @@ function ayarlariKaydet() {
 }
 
 function ayarlariYukle() {
-    browser.storage.local.get("notlar").then(alinan => {
+    storage.get("notlar").then(alinan => {
         if (typeof alinan.notlar == "undefined") {
             document.querySelector("#gecmeNot").value = varsayilanlar.gecmeNot
             document.querySelector("#takdirNot").value = varsayilanlar.takdirNot

@@ -1,4 +1,6 @@
-donem1Tablo = document.getElementById("tblNotlarIDonem")
+import storage from "./utils/storage";
+
+let donem1Tablo = document.getElementById("tblNotlarIDonem")
 if (donem1Tablo != null) {
     let aktiveButon = document.createElement("button")
     aktiveButon.type = "button"
@@ -13,7 +15,7 @@ if (donem1Tablo != null) {
     donem1Tablo.parentNode.insertBefore(abdiv, donem1Tablo.parentNode.childNodes[0])
 }
 
-donem2Tablo = document.getElementById("tblNotlarIIDonem")
+let donem2Tablo = document.getElementById("tblNotlarIIDonem")
 if (donem2Tablo != null) {
     let aktiveButon = document.createElement("button")
     aktiveButon.type = "button"
@@ -34,7 +36,7 @@ function precisionRound(number, precision = 0) {
 }
 
 function hesaplayici(tablo, abdiv) {
-    tabloB = tablo.getElementsByTagName("tbody")[1]
+    let tabloB = tablo.getElementsByTagName("tbody")[1]
     let puanIndex = -1, muafIndex = -1, notIndex = -1, boslananlar = []
     let kutular = [], dersSaatler = [], agirlikOrt = true, dersIsimler = []
     for (let i = 1; i < tabloB.children.length; i++) {
@@ -141,7 +143,7 @@ function hesaplayici(tablo, abdiv) {
                         }
                     }
                 }
-                let depoSorgu = browser.storage.local.get("dersler")
+                let depoSorgu = storage.get("dersler")
                 depoSorgu.then(alinan => {
                     if (typeof alinan.dersler != "undefined"){
                         let derslerKeys = Object.keys(alinan.dersler)
@@ -177,7 +179,7 @@ function hesaplayici(tablo, abdiv) {
     tablo.style.textAlign = "center"
     tablo.appendChild(hesapButon)
     hesapButon.onclick = () => {
-        let depoSorgu = browser.storage.local.get("notlar")
+        let depoSorgu = storage.get("notlar")
         depoSorgu.then(alinan => {
             let gecerli
             if (typeof alinan.notlar == "undefined") {
@@ -224,7 +226,7 @@ function hesaplayici(tablo, abdiv) {
                 } else {
                     let sonuc = precisionRound(satirKredi / toplamDersSaat, 2)
                     mesaj = `Dönem sonu ortalamanız: ${sonuc}\n`
-                    belgeMesaj = ""
+                    let belgeMesaj = ""
                     if (sonuc >= gecerli.takdirNot) {
                         if (belgeDurum) {
                             belgeMesaj = 'Tebrikler, "Takdir Belgesi" almaya hak kazandınız.'
@@ -274,7 +276,7 @@ function hesaplayici(tablo, abdiv) {
         for (let i = 0; i < dersIsimler.length; i++) {
             dersler[dersIsimler[i]] = dersSaatler[i].value
         }
-        browser.storage.local.set({
+        storage.set({
             dersler: dersler
         }).then(() => {
             alert("Kayıt başarılı.")

@@ -1,7 +1,8 @@
 {
-  "name": "extension-boilerplate",
-  "version": "0.0.2",
-  "description": "A template for creating cross-browser extensions",
+  "name": "eokulext",
+  "version": "1.1.0",
+  "description": "Tarayıcılar için e-Okul ortalama hesaplayıcı.",
+  "license": "GPL-3.0",
   "scripts": {
     "chrome-build": "cross-env TARGET=chrome gulp",
     "opera-build": "cross-env TARGET=opera gulp",
@@ -17,13 +18,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/EmailThis/extension-boilerplate"
+    "url": "https://github.com/thesseyren/eokulext"
   },
-  "author": "Bharani <bharani91@gmail.com> (https://github.com/bharani91)",
-  "bugs": {
-    "url": "https://github.com/EmailThis/extension-boilerplate/issues"
-  },
-  "homepage": "https://www.emailthis.me/extension-boilerplate",
+  "author": "thesseyren <thesseyren@hotmail.com> (https://github.com/thesseyren)",
   "devDependencies": {
     "babel-core": "^6.1.2",
     "babel-preset-es2015": "^6.1.2",
