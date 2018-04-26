@@ -1,34 +1,23 @@
 import storage from "./utils/storage";
 
-let donem1Tablo = document.getElementById("tblNotlarIDonem")
-if (donem1Tablo != null) {
-    let aktiveButon = document.createElement("button")
-    aktiveButon.type = "button"
-    aktiveButon.innerText = "Hesaplama Modülünü Etkinleştir"
-    let abdiv = document.createElement("div")
-    abdiv.style.textAlign = "right"
-    aktiveButon.onclick = () => {
-        aktiveButon.outerHTML = ""
-        let donem1Buton = hesaplayici(donem1Tablo, abdiv)
+function baslatici(donemTablo){
+    if (donemTablo != null) {
+        let aktiveButon = document.createElement("button")
+        aktiveButon.type = "button"
+        aktiveButon.innerText = "Hesaplama Modülünü Etkinleştir"
+        let abdiv = document.createElement("div")
+        abdiv.style.textAlign = "right"
+        aktiveButon.onclick = () => {
+            aktiveButon.outerHTML = ""
+            donemButon = hesaplayici(donemTablo, abdiv)
+        }
+        abdiv.appendChild(aktiveButon)
+        donemTablo.parentNode.insertBefore(abdiv, donemTablo.parentNode.childNodes[0])
     }
-    abdiv.appendChild(aktiveButon)
-    donem1Tablo.parentNode.insertBefore(abdiv, donem1Tablo.parentNode.childNodes[0])
 }
 
-let donem2Tablo = document.getElementById("tblNotlarIIDonem")
-if (donem2Tablo != null) {
-    let aktiveButon = document.createElement("button")
-    aktiveButon.type = "button"
-    aktiveButon.innerText = "Hesaplama Modülünü Etkinleştir"
-    let abdiv = document.createElement("div")
-    abdiv.style.textAlign = "right"
-    aktiveButon.onclick = () => {
-        aktiveButon.outerHTML = ""
-        let donem2Buton = hesaplayici(donem2Tablo, abdiv)
-    }
-    abdiv.appendChild(aktiveButon)
-    donem2Tablo.parentNode.insertBefore(abdiv, donem2Tablo.parentNode.childNodes[0])
-}
+baslatici(document.getElementById("tblNotlarIDonem"));
+baslatici(document.getElementById("tblNotlarIIDonem"));
 
 function precisionRound(number, precision = 0) {
     var factor = Math.pow(10, precision);
@@ -143,8 +132,7 @@ function hesaplayici(tablo, abdiv) {
                         }
                     }
                 }
-                let depoSorgu = storage.get("dersler")
-                depoSorgu.then(alinan => {
+                let depoSorgu = storage.get("dersler", alinan => {
                     if (typeof alinan.dersler != "undefined"){
                         let derslerKeys = Object.keys(alinan.dersler)
                         for (let j = 0; j < derslerKeys.length; j++) {
@@ -179,8 +167,7 @@ function hesaplayici(tablo, abdiv) {
     tablo.style.textAlign = "center"
     tablo.appendChild(hesapButon)
     hesapButon.onclick = () => {
-        let depoSorgu = storage.get("notlar")
-        depoSorgu.then(alinan => {
+        let depoSorgu = storage.get("notlar", alinan => {
             let gecerli
             if (typeof alinan.notlar == "undefined") {
                 gecerli = {
@@ -278,7 +265,7 @@ function hesaplayici(tablo, abdiv) {
         }
         storage.set({
             dersler: dersler
-        }).then(() => {
+        }, () => {
             alert("Kayıt başarılı.")
         })
     }
