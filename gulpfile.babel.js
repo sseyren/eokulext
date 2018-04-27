@@ -105,7 +105,6 @@ function pipe(src, ...transforms) {
 function mergeAll(dest) {
   return merge(
     pipe('./src/icons/**/*', `./build/${dest}/icons`),
-    pipe(['./src/_locales/**/*'], `./build/${dest}/_locales`),
     pipe([`./src/images/${target}/**/*`], `./build/${dest}/images`),
     pipe(['./src/images/shared/**/*'], `./build/${dest}/images`),
     pipe(['./src/**/*.html'], `./build/${dest}`)
@@ -117,7 +116,8 @@ function buildJS(target) {
     'background.js',
     'ayarlar.js',
     'livereload.js',
-    'hesapla.js'
+    'hesapla.js',
+    'sabitler.js'
   ]
 
   let tasks = files.map( file => {
