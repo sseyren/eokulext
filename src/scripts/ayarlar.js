@@ -33,7 +33,7 @@ function ayarlariKaydet() {
 }
 
 function ayarlariYukle() {
-    storage.get("notlar").then(alinan => {
+    storage.get("notlar", alinan => {
         if (typeof alinan.notlar == "undefined") {
             document.querySelector("#gecmeNot").value = varsayilanlar.gecmeNot
             document.querySelector("#takdirNot").value = varsayilanlar.takdirNot
@@ -54,7 +54,7 @@ function icerikYuklendi() {
         ayarlariKaydet()
     }
     document.querySelector("#dersSifirla").onclick = () => {
-        browser.storage.local.remove("dersler").then(() => {
+        storage.remove("dersler", () => {
             alert("Sıfırlama başarılı.")
         })
     }
