@@ -10,8 +10,8 @@ E-Okul için notlarınızı düzenleyerek dönem sonu ortalamanızı ve alacağ�
 ## Nasıl edinirim?
 
 ### Marketlerden edinebilirsiniz:
-- ![Chrome](https://chrome.google.com/webstore/detail/e-okul-ortalama-hesaplay%C4%B1/pijniagmjdenncfcfoagebjlgnpnabfa)
-- ![Firefox](https://addons.mozilla.org/tr/firefox/addon/e-okul-ortalama-hesaplay%C4%B1c%C4%B1/)
+- [Chrome](https://chrome.google.com/webstore/detail/e-okul-ortalama-hesaplay%C4%B1/pijniagmjdenncfcfoagebjlgnpnabfa)
+- [Firefox](https://addons.mozilla.org/tr/firefox/addon/e-okul-ortalama-hesaplay%C4%B1c%C4%B1/)
 
 ### Kaynak koddan edinebilirsiniz:
 - `$ git clone https://github.com/thesseyren/eokulext.git` ile depoyu indirin.
