@@ -262,7 +262,7 @@ function hesaplayici(tablo, abdiv) {
     // Kaydedilmiş haftalık ders saatlerini girdilere yerleştirir.
     storage.get("dersler", alinan => {
 
-        if (typeof alinan.dersler != "undefined") {
+        if (typeof alinan != "undefined" && typeof alinan.dersler != "undefined") {
 
             Object.keys(alinan.dersler).forEach(dersKey => {
 
@@ -284,7 +284,7 @@ function hesaplayici(tablo, abdiv) {
 
         storage.get("notlar", alinan => {
 
-            let gecerli = (typeof alinan.notlar == "undefined") ? sabitler.notlar : alinan.notlar
+            let gecerli = (typeof alinan == "undefined" || typeof alinan.notlar == "undefined") ? sabitler : alinan.notlar
 
             let satirKredi = 0, toplamDersSaat = 0, mesaj = "", belgeDurum = true
 
